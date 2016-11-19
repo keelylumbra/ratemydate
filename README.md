@@ -16,7 +16,7 @@ Schedule can be seen at https://trello.com/b/09Zq5IzX/rate-my-date
 
 Wire Frames:
 
-![screen shot 2016-11-09 at 7 29 40 pm](https://cloud.githubusercontent.com/assets/17773824/20457141/be7c019e-ae52-11e6-81b0-34c221e8cef0.png)
+
 ![screen shot 2016-11-09 at 7 29 44 pm](https://cloud.githubusercontent.com/assets/17773824/20457143/be7cdef2-ae52-11e6-92d2-a054af867c72.png)
 ![screen shot 2016-11-19 at 12 16 53 pm](https://cloud.githubusercontent.com/assets/17773824/20457142/be7ca2de-ae52-11e6-9e72-ee5bfc72a593.png)
 ![screen shot 2016-11-19 at 12 17 07 pm](https://cloud.githubusercontent.com/assets/17773824/20457145/be7dff58-ae52-11e6-8f52-fc91498898ad.png)
