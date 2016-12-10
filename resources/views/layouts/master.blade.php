@@ -80,8 +80,8 @@
     {{--<a href="#!name"><span class="white-text name">John Doe</span></a>--}}
     {{--<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>--}}
     {{--</div></li>--}}
-    <li><a href="{{ URL::to('/add') }}"><i class="material-icons">library_add</i> add a review</a></li>
-    <li><a href="{{ URL::to('/browse') }}"><i class="material-icons">pageview</i> browse reviews</a></li>
+    <li><a href="{{ URL::to('/dates/create') }}"><i class="material-icons">library_add</i> add a review</a></li>
+    <li><a href="{{ URL::to('/dates') }}"><i class="material-icons">pageview</i> browse reviews</a></li>
     <li><a href="{{ URL::to('/faq') }}"><i class="material-icons">live_help</i> faq</a></li>
 
 </ul>

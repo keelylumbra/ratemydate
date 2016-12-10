@@ -11,17 +11,9 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('layouts.master');
 });
 
-Route::get('/add', function(){
-    return View::make('add');
-});
-Route::get('/browse', function(){
-    return View::make('browse');
-});
-Route::get('/faq', function(){
-    return View::make('faq');
-});
-
+Route::resource('dates', 'DatesController');

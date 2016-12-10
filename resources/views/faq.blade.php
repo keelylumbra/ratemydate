@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: keelolo
- * Date: 12/1/16
- * Time: 6:25 PM
- */
+@extends('layouts.master')
+
+@section('headline')
+    <div class="main-box ScrollStyle" id="black-font">
+        <div class="row">
+        </div>
+    </div>
+@endsection
