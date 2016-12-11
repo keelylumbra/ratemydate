@@ -67,6 +67,52 @@
             overflow-y: scroll;
         }
 
+        h4{
+            color: black;
+            font-family: "Courier";
+            font-size: 20px;
+            margin: 10px 0 0 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 30em;
+            animation: type 4s steps(60, end);
+        }
+
+        h4:nth-child(2){
+            animation: type2 8s steps(60, end);
+        }
+
+        h4 a{
+            color: black;
+            text-decoration: none;
+        }
+
+        /*span{*/
+            /*animation: blink 1s infinite;*/
+        /*}*/
+
+        @keyframes type{
+            from { width: 0; }
+        }
+
+        @keyframes type2{
+            0%{width: 0;}
+            50%{width: 0;}
+            100%{ width: 100; }
+        }
+
+        @keyframes blink{
+            to{opacity: .0;}
+        }
+
+        .error {
+            color: red;
+        }
+
+        #2 {
+
+        }
+
 
     </style>
 </head>
@@ -74,12 +120,16 @@
 
 
 <ul id="slide-out" class="side-nav">
-    {{--<li><div class="userView">--}}
+    <li><div class="userView">
 
-    {{--<a href="#!user"><img class="circle" src="#"></a>--}}
-    {{--<a href="#!name"><span class="white-text name">John Doe</span></a>--}}
-    {{--<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>--}}
-    {{--</div></li>--}}
+            <form class="search" action="/search" method="GET">
+                <input type="text" name="search" value=""/>
+                <button class="btn waves-effect waves-light submit" type="submit" name="action">search dates
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+    </div></li><br><Br><Br><Br>
+    <li><a href="{{ URL::to('/') }}"><i class="material-icons">home</i> home page </a></li>
     <li><a href="{{ URL::to('/dates/create') }}"><i class="material-icons">library_add</i> add a review</a></li>
     <li><a href="{{ URL::to('/dates') }}"><i class="material-icons">pageview</i> browse reviews</a></li>
     <li><a href="{{ URL::to('/faq') }}"><i class="material-icons">live_help</i> faq</a></li>
@@ -89,7 +139,7 @@
 
 
 
-
+<div class="searchbar">@yield('searchbar')</div>
 <div class="headline">
     @section('headline')
         <p id="title">ratemydate</p>
@@ -116,5 +166,17 @@
     $(".button-collapse").sideNav();
     // Initialize collapsible (uncomment the line below if you use the dropdown variation)
     $('.collapsible').collapsible();
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+        $('.button-collapse2').sideNav({
+                    menuWidth: 300, // Default is 240
+                    edge: 'left', // Choose the horizontal origin
+                    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true // Choose whether you can drag to open on touch screens
+                }
+        );
+
+    });
+
 </script>
 </html>

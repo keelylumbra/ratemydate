@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Validator;
 
 
 use App\dates;
@@ -25,6 +26,14 @@ class DatesController extends Controller
 
 
         return view('browse', ['dates' => $dates]);
+
+        $search = Request::get('search'); //<-- we use global request to get the param of URI
+
+        $dates = dates::where('user_name','like','%'.$search.'%')
+            ->orderBy('user_name')
+            ->paginate(20);
+
+        return view('pages.search',compact('dates'));
     }
 
     /**
@@ -43,20 +52,19 @@ class DatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+        'user_name' => 'required',
+        'site_name' => 'required',
+    ]);
 
-//        $this->validate($request, [
-////            'user_name' => 'required',
-////            'site_name' => 'required',
-////        ]);
-////
-////        // process the login
-////        if ($validator->fails()) {
-////            return redirect('post/create')
-////                ->withErrors($validator)
-////                ->withInput();
-////        } else {
+        // process the login
+        if ($validator->fails()) {
+            return redirect('/dates/create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
 //
 //            $date = new dates;
 //            $date->user_name = $request->get('user_name');
@@ -76,19 +84,20 @@ class DatesController extends Controller
 //            return Redirect::to('dates');
 //        }
 
-        $date = new \App\dates;
-        $date->user_name = Input::get('user_name');
-        $date->site_name = Input::get('site_name');
-        $date->picture_path = Input::get('picture_path');
-        $date->picture_rate = Input::get('picture_rate');
-        $date->cool_rate = Input::get('cool_rate');
-        $date->repeat_rate = Input::get('repeat_rate');
-        $date->nice_rate = Input::get('nice_rate');
-        $date->review = Input::get('review');
-        $date->save();
+            $date = new \App\dates;
+            $date->user_name = Input::get('user_name');
+            $date->site_name = Input::get('site_name');
+            $date->picture_path = Input::get('picture_path');
+            $date->picture_rate = Input::get('picture_rate');
+            $date->cool_rate = Input::get('cool_rate');
+            $date->repeat_rate = Input::get('repeat_rate');
+            $date->nice_rate = Input::get('nice_rate');
+            $date->review = Input::get('review');
+            $date->save();
 
             return Redirect::to('dates');
 
+        }
     }
     /**
      * Display the specified resource.
@@ -100,7 +109,7 @@ class DatesController extends Controller
     {
         $dates = dates::findOrFail($id);
 
-        return view('browse')->withdate($dates);
+        return view('show')->withdate($dates);
     }
 
     /**
@@ -136,4 +145,6 @@ class DatesController extends Controller
     {
         //
     }
+
+
 }

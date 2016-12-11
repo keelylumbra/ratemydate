@@ -16,4 +16,11 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
+Route::get('search', 'SearchController@getIndex');
+
+Route::get('/faq', function () {
+    return view('faq');
+});
+
 Route::resource('dates', 'DatesController');
+

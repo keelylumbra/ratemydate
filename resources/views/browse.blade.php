@@ -7,8 +7,8 @@
                 <h3>{{ $date->user_name }}</h3>
                 <p>{{ $date->site_name}}</p>
                 <p>
-                    <a href="{{ route('dates.show', $date->id) }}" class="btn btn-info">View Task</a>
-                    <a href="{{ route('dates.edit', $date->id) }}" class="btn btn-primary">Edit Task</a>
+                    <a href="{{ route('dates.show', $date->id) }}" class="btn btn-info">View Date</a>
+
                 </p>
                 <hr>
             @endforeach
