@@ -1,40 +1,24 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img width="150"src="https://laravel.com/laravel.png"></a></p>
+# ratemydate
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+Rate My Date
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+An app for the frequent online dater, to review recent dates, and research future ones
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+For one who questions the value of this website, here are some statistics pulled from:  http://www.statisticbrain.com/online-dating-statistics/
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+![screen shot 2016-11-19 at 12 18 17 pm](https://cloud.githubusercontent.com/assets/17773824/20457146/be8a0d8e-ae52-11e6-8dbd-8da506156ef6.png)
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-## Contributing
+Schedule can be seen at https://trello.com/b/09Zq5IzX/rate-my-date
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Wire Frames:
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+![screen shot 2016-11-09 at 7 29 40 pm](https://cloud.githubusercontent.com/assets/17773824/20457141/be7c019e-ae52-11e6-81b0-34c221e8cef0.png)
+![screen shot 2016-11-09 at 7 29 44 pm](https://cloud.githubusercontent.com/assets/17773824/20457143/be7cdef2-ae52-11e6-92d2-a054af867c72.png)
+![screen shot 2016-11-19 at 12 16 53 pm](https://cloud.githubusercontent.com/assets/17773824/20457142/be7ca2de-ae52-11e6-9e72-ee5bfc72a593.png)
+![screen shot 2016-11-19 at 12 17 07 pm](https://cloud.githubusercontent.com/assets/17773824/20457145/be7dff58-ae52-11e6-8f52-fc91498898ad.png)
+![screen shot 2016-11-19 at 12 17 51 pm](https://cloud.githubusercontent.com/assets/17773824/20457144/be7cf1c6-ae52-11e6-8682-80f9997b76f6.png)
+![screen shot 2016-11-19 at 12 18 05 pm](https://cloud.githubusercontent.com/assets/17773824/20457147/be8a2134-ae52-11e6-98b3-f70b7da836ad.png)
