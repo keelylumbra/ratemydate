@@ -10,7 +10,4 @@ class dates extends Model
         'user_name',
         'site_name'
     ];
-
-
-
 }

@@ -1,14 +1,18 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
-
+use Illuminate\Support\Facades\DB;
 
 use App\dates;
+use Uploadcare\Api;
+
+
 
 
 class DatesController extends Controller
@@ -23,6 +27,7 @@ class DatesController extends Controller
 
 
         $dates = dates::all();
+
 
 
         return view('browse', ['dates' => $dates]);
@@ -55,9 +60,11 @@ class DatesController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-        'user_name' => 'required',
-        'site_name' => 'required',
-    ]);
+            'user_name' => 'required',
+            'site_name' => 'required',
+
+        ]);
+
 
         // process the login
         if ($validator->fails()) {
@@ -65,40 +72,53 @@ class DatesController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-//
-//            $date = new dates;
-//            $date->user_name = $request->get('user_name');
-//            $date->site_name = $request->get('site_name');
-//            $date->picture_path = $request->get('picture_path');
-//            $date->picture_rate = $request->get('picture_rate');
-//            $date->cool_rate = $request->get('cool_rate');
-//            $date->repeat_rate = $request->get('repeat_rate');
-//            $date->nice_rate = $request->get('nice_rate');
-//            $date->review = $request->get('review');
-//            $date->save();
-//        $this->store($request);
-//
-//
-//            // redirect
-//            Session::flash('message', 'Successfully created review!');
-//            return Redirect::to('dates');
-//        }
+            $dateMatch = DB::table('dates')->where([
+                ['user_name', '=', Input::get('user_name')],
+                ['site_name', '=', Input::get('site_name')],
+            ])->get();
 
-            $date = new \App\dates;
-            $date->user_name = Input::get('user_name');
-            $date->site_name = Input::get('site_name');
-            $date->picture_path = Input::get('picture_path');
-            $date->picture_rate = Input::get('picture_rate');
-            $date->cool_rate = Input::get('cool_rate');
-            $date->repeat_rate = Input::get('repeat_rate');
-            $date->nice_rate = Input::get('nice_rate');
-            $date->review = Input::get('review');
-            $date->save();
+
+
+            if (count($dateMatch) != null){
+
+                DB::table('dates')
+                    ->where([['user_name', Input::get('user_name')],
+                        ['site_name', '=', Input::get('site_name')]])
+                    ->update(
+                        ['picture_rate' => (intval('picture_rate' + Input::get('picture_rate')) /2 ), 'cool_rate' => (intval('cool_rate' + Input::get('cool_rate')) /2 ), 'repeat_rate' => (intval('repeat_rate' + Input::get('repeat_rate')) /2 ), 'nice_rate' => (intval('nice_rate' + Input::get('nice_rate')) /2 )]);
+//Need logic for adding to reviews, updating screen shots
+
+
+
+
+            } else {
+
+
+
+                $date = new \App\dates;
+                $date->user_name = Input::get('user_name');
+                $date->site_name = Input::get('site_name');
+               $date->picture_path1 = Input::get('picture_path1');
+                $date->picture_path2 = Input::get('picture_path2');
+                $date->picture_path3 = Input::get('picture_path3');
+                $date->picture_rate = Input::get('picture_rate');
+                $date->cool_rate = Input::get('cool_rate');
+                $date->repeat_rate = Input::get('repeat_rate');
+                $date->nice_rate = Input::get('nice_rate');
+                $date->review = Input::get('review');
+                $date->save();
+                // user doesn't exist
+            }
+
+
+
+        }
 
             return Redirect::to('dates');
 
         }
-    }
+
+
     /**
      * Display the specified resource.
      *
@@ -108,6 +128,7 @@ class DatesController extends Controller
     public function show($id)
     {
         $dates = dates::findOrFail($id);
+//        $array= unserialize($dates['review']);
 
         return view('show')->withdate($dates);
     }

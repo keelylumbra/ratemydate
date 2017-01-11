@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        UPLOADCARE_PUBLIC_KEY = 'acb109c698d98153f637';
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bungee+Hairline|Coming+Soon|Covered+By+Your+Grace|Crafty+Girls|Fredericka+the+Great|Give+You+Glory|Homemade+Apple|Kranky|Megrim|Nothing+You+Could+Do|Pacifico|Reenie+Beanie|Sansita+One|Six+Caps|Special+Elite|Yellowtail" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
 
     <!-- Styles -->
@@ -23,6 +28,14 @@
             background: url("https://s11.postimg.org/o6n00wfc3/6806_tall.jpg");
             background-size: 100% auto;
             background-repeat: no-repeat;
+        }
+        #gauge {
+            height: 440px;
+            width: 100%;
+        }
+        #reviews {
+            font-family: 'Gloria Hallelujah', cursive;
+            font-size: 30pt;
         }
 
 
@@ -86,6 +99,22 @@
             color: black;
             text-decoration: none;
         }
+        .right-align {
+            float: right;
+            text-align: center;
+        }
+
+
+
+        .clearfix {
+            float:left;
+            overflow: auto;
+            zoom: 1;
+        }
+
+        #tinypic {
+            text-align: center;
+        }
 
         /*span{*/
             /*animation: blink 1s infinite;*/
@@ -109,15 +138,14 @@
             color: red;
         }
 
-        #2 {
-
+        .yellowtail {
+            font-family: 'Permanent Marker', cursive;
         }
 
 
     </style>
 </head>
 <body>
-
 
 <ul id="slide-out" class="side-nav">
     <li><div class="userView">
@@ -157,7 +185,8 @@
 <script type="text/javascript">
 
 
-    $(document).ready(function() {
+
+$(document).ready(function() {
         $('select').material_select();
     });
 
@@ -177,6 +206,49 @@
         );
 
     });
+$(function(){
+    $("#gauge").dxLinearGauge({
+        scale: {
+            startValue: 0,
+            endValue: 10,
+            tickInterval: 1,
+            tick: {
+                color: "#536878"
+            },
+            label: {
+                indentFromTick: -3
+            }
+        },
+        rangeContainer: {
+            offset: 10,
+            ranges: [
+                { startValue: 0, endValue: 3, color: "#92000A" },
+                { startValue: 4, endValue: 6, color: "#E6E200" },
+                { startValue: 7, endValue: 10, color: "#77DD77" }
+            ]
+        },
+        valueIndicator: {
+            offset: 20
+        },
+        subvalueIndicator: {
+            offset: -15
+        },
+        "export": {
+            enabled: true
+        },
+        title: {
+//           text: "Issues Closed (with Min and Max Expected)",
+            font: { size: 28 }
+        },
+        value: 17,
+        subvalues: [0, 10]
+    });
+});
+
+
+
 
 </script>
+
+
 </html>

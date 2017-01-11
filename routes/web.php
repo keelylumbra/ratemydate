@@ -23,4 +23,5 @@ Route::get('/faq', function () {
 });
 
 Route::resource('dates', 'DatesController');
+Route::resource('ratings', 'DatesController');
 

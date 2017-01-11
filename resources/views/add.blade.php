@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+
 @section('headline')
   <div class="main-box ScrollStyle" id="black-font">
       <div class="row">
@@ -88,15 +89,46 @@
 
               </div>
               <div class="row">
-                  <div class="file-field input-field">
-                      <div class="btn">
-                          <span>upload some screenshots</span>
-                          <input type="file" multiple id="picture_path" name="picture_path">
+
+                 <h3> upload some photos (urls only) </h3>
+
+
+
+
+                  <div class="row">
+                      <div class="col s6">
+
+                      <div class="input-field">
+                              <i class="material-icons prefix">perm_media</i>
+                              <textarea id="icon_prefix2" name="picture_path1" class="materialize-textarea"></textarea><label for="icon_prefix2">copy and paste url here</label></div><Br><Br>
+                          <div class="input-field"><i class="material-icons prefix">perm_media</i>
+                          <textarea id="icon_prefix2" name="picture_path3" class="materialize-textarea"></textarea><label for="icon_prefix2">copy and paste url here</label></div><Br><Br>
+                          <div class="input-field"><i class="material-icons prefix">perm_media</i>
+                          <textarea id="icon_prefix2" name="picture_path2" class="materialize-textarea"></textarea><label for="icon_prefix2">copy and paste url here</label></div><br><br>
+
                       </div>
-                      <div class="file-path-wrapper">
-                          <input class="file-path validate" name="picture_path" type="text">
-                      </div>
+
+                      <div class="col s6" id="tinypic">
+                          <script type="text/javascript">
+                              tinypic_layout = 'narrow';
+                              tinypic_type = 'both';
+                              tinypic_links = 'url';
+                              tinypic_language = 'en';
+                              tinypic_search = 'false';
+                              tinypic_autoload = false;
+                              tinypic_callback_text = 'Upload';
+                          </script>
+                          <script src="http://plugin.tinypic.com/j/plugin.js" type="text/javascript"></script>
+                          <a class="waves-effect waves-light btn"><input type="button" class="right-align" value="click here to get urls!" onclick="javascript:showTinypicPlugin();"/></a>
+
+
                   </div>
+
+
+
+                  </div>
+
+
 
               </div>
               <div class="row">

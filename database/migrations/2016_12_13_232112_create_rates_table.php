@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDatesTable extends Migration
+class CreateRatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateDatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('dates', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('picture_path1')->nullable();
-            $table->string('picture_path2')->nullable();
-            $table->string('picture_path3')->nullable();
-            $table->string('user_name');
-            $table->string('site_name');
+            $table->integer('user_name_id')->unsigned();
+            $table->foreign('user_name_id')->references('id')->on('dates');
             $table->integer('picture_rate');
+            $table->string('picture_path1');
+            $table->string('picture_path2');
+            $table->string('picture_path3');
             $table->integer('cool_rate');
             $table->integer('repeat_rate');
             $table->integer('nice_rate');
             $table->string('review');
-
         });
     }
 
@@ -37,6 +36,6 @@ class CreateDatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dates');
+        Schema::dropIfExists('ratings');
     }
 }
