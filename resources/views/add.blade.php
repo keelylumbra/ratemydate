@@ -31,7 +31,7 @@
                   <div class="row">
                   <div class="input-field col s12">
                       <select id="site_name" name="site_name">
-                          <option value="" disabled selected>select site(s)</option>
+                          <option value="" disabled selected>select site</option>
                           <option value="plenty of fish">plenty of fish</option>
                           <option value="tinder">tinder</option>
                           <option value="grindr">grindr</option>
